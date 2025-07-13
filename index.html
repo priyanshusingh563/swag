@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mam You Are My Angel</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      background: linear-gradient(to bottom, #1a0023, #330033);
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    .stars {
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+      animation: moveStars 60s linear infinite;
+      position: absolute;
+      z-index: 0;
+    }
+
+    @keyframes moveStars {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
+    }
+
+    .msg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      font-size: 3em;
+      text-align: center;
+      text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff66cc;
+      animation: glow 2s ease-in-out infinite alternate;
+      z-index: 2;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff66cc; }
+      to { text-shadow: 0 0 25px #ff99cc, 0 0 30px #ff99cc; }
+    }
+
+    .heart {
+      width: 25px;
+      height: 25px;
+      background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center;
+      background-size: contain;
+      position: absolute;
+      animation: fall 6s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-100px) rotate(0); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+
+    .butterfly {
+      width: 50px;
+      height: 50px;
+      background: url('https://cdn-icons-png.flaticon.com/512/616/616408.png') no-repeat center;
+      background-size: contain;
+      position: absolute;
+      animation: fly 15s ease-in-out infinite alternate;
+      z-index: 1;
+    }
+
+    @keyframes fly {
+      0% { transform: translate(0, 0) rotate(0); }
+      50% { transform: translate(70vw, 60vh) rotate(180deg); }
+      100% { transform: translate(0, 100vh) rotate(360deg); }
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #fff;
+      animation: sparkle 3s infinite ease-in-out alternate;
+    }
+
+    @keyframes sparkle {
+      from { opacity: 0.2; transform: scale(1); }
+      to { opacity: 1; transform: scale(1.5); }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="msg">💖Mom, You Are My Angel 💖</div>
+
+  <script>
+    // Hearts
+    for (let i = 0; i < 30; i++) {
+      let heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDelay = Math.random() * 6 + 's';
+      document.body.appendChild(heart);
+    }
+
+    // Butterflies
+    for (let i = 0; i < 5; i++) {
+      let b = document.createElement('div');
+      b.className = 'butterfly';
+      b.style.top = Math.random() * 90 + 'vh';
+      b.style.left = Math.random() * 100 + 'vw';
+      b.style.animationDelay = Math.random() * 10 + 's';
+      document.body.appendChild(b);
+    }
+
+    // Sparkles
+    for (let i = 0; i < 40; i++) {
+      let s = document.createElement('div');
+      s.className = 'sparkle';
+      s.style.left = Math.random() * 100 + 'vw';
+      s.style.top = Math.random() * 100 + 'vh';
+      s.style.animationDelay = Math.random() * 5 + 's';
+      document.body.appendChild(s);
+    }
+
+    // Click Surprise
+    document.body.addEventListener('click', function(e) {
+      let pop = document.createElement('div');
+      pop.innerText = "💫";
+      pop.style.position = 'absolute';
+      pop.style.left = e.pageX + 'px';
+      pop.style.top = e.pageY + 'px';
+      pop.style.fontSize = '30px';
+      pop.style.animation = 'pop 1s forwards';
+      document.body.appendChild(pop);
+      setTimeout(() => pop.remove(), 1000);
+    });
+  </script>
+</body>
+</html>
